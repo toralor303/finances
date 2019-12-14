@@ -1,0 +1,35 @@
+.title {
+    font-size: 64px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+td:hover,
+th:hover {
+    cursor: default;
+}
+
+.edit-column {
+    padding: 0 !important;
+}
+
+.icon {
+    width: 45%;
+    height: auto;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.edit-icon {
+    margin: 15px auto;
+}
+
+.edit-icon:hover {
+    transform: scale(120%);
+}
+
+.delete-icon:hover {
+    transform: scale(120%);
+}

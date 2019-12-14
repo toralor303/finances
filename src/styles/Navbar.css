@@ -1,0 +1,11 @@
+.link {
+  color: white;
+  background-color: rgba(175, 175, 175, 0.5);
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.link:hover {
+  color: white;
+  text-decoration: none;
+}
