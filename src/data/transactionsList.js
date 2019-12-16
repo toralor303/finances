@@ -4,7 +4,7 @@ const transactionsList = [
     type: 'Expense',
     title: 'Rent',
     amount: '550',
-    startDate: '01-12-2019',
+    startDate: '12-01-2019',
     endDate: null,
     occurence: 'Monthly'
   },
@@ -13,7 +13,7 @@ const transactionsList = [
     type: 'Expense',
     title: 'Rent',
     amount: '550',
-    startDate: '01-12-2019',
+    startDate: '12-01-2019',
     endDate: null,
     occurence: 'Monthly'
   },
@@ -22,7 +22,7 @@ const transactionsList = [
     type: 'Expense',
     title: 'Rent',
     amount: '550',
-    startDate: '01-12-2019',
+    startDate: '12-01-2019',
     endDate: null,
     occurence: 'Monthly'
   }
