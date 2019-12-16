@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-import { TransactionsContext } from '../context';
+import React from 'react';
+import {TransactionsContext} from '../context';
 import * as transactionTypes from '../data/transaction-types';
+import * as occurencesList from '../data/occurences';
 
 import '../styles/transaction.scss';
-
+const occurences = Object.values(occurencesList);
 const Transaction = props => {
   return (
     <TransactionsContext.Consumer>
@@ -11,8 +12,8 @@ const Transaction = props => {
         const transaction = value.transactions.filter(
           transaction => transaction.id === props.match.params.id
         );
-        const { type, title, amount, startDate, endDate, occurence } = transaction[0];
-        console.log(transaction);
+        const {type, title, amount, startDate, endDate, occurence} = transaction[0];
+        console.log(transactionTypes);
         return (
           <div className='container root'>
             <h1 className='title'>{title}</h1>
@@ -21,12 +22,8 @@ const Transaction = props => {
                 <div className='row-type row'>
                   <span className='lbl lbl-type col-sm-6'>Type: </span>
                   <select defaultValue={type} className='form-control col-sm-6'>
-                    <option value={transactionTypes.EXPENSE}>
-                      {transactionTypes.EXPENSE}
-                    </option>
-                    <option value={transactionTypes.INCOME}>
-                      {transactionTypes.INCOME}
-                    </option>
+                    <option value={transactionTypes.EXPENSE}>{transactionTypes.EXPENSE}</option>
+                    <option value={transactionTypes.INCOME}>{transactionTypes.INCOME}</option>
                   </select>
                 </div>
                 <div className='row-amount row'>
@@ -43,7 +40,7 @@ const Transaction = props => {
                   <div className='lbl-startDate col-sm-6'>Start Date:</div>
                   <input
                     type='date'
-                    defaultValue={new Date()}
+                    defaultValue={startDate == null ? null : new Date(startDate)}
                     className='startDate form-control datepicker col-sm-6'
                   />
                 </div>
@@ -57,14 +54,18 @@ const Transaction = props => {
                 </div>
                 <div className='row-occurence row'>
                   <div className='lbl-occurence col-sm-6'>Occurence:</div>
-                  <div className='occurence col-sm-6'>{occurence}</div>
+                  <select defaultValue={occurence} className='occurence form-control col-sm-6'>
+                    {occurences.map(occurence => {
+                      return (
+                        <option value={occurence} key={occurence}>
+                          {occurence}
+                        </option>
+                      );
+                    })}
+                  </select>
                 </div>
               </div>
-              <input
-                type='submit'
-                className='btn btn-success save'
-                value='Save changes'
-              />
+              <input type='submit' className='btn btn-success save' value='Save changes' />
             </div>
           </div>
         );
