@@ -7,7 +7,8 @@ const TransactionsContextProvider = props => {
   const [transactions, setTransactions] = useState(transactionsList);
 
   const deleteTransaction = id => {
-    setTransactions(transactions.filter(transactionId => transactionId !== id));
+    console.log(id);
+    setTransactions(transactions.filter(transaction => transaction.id !== id));
   };
 
   const addTransaction = transaction => {

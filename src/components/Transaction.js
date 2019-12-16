@@ -5,15 +5,15 @@ import * as occurencesList from '../data/occurences';
 
 import '../styles/transaction.scss';
 const occurences = Object.values(occurencesList);
+
 const Transaction = props => {
   return (
     <TransactionsContext.Consumer>
       {value => {
         const transaction = value.transactions.filter(
-          transaction => transaction.id === props.match.params.id
+          transaction => parseInt(transaction.id) === parseInt(props.match.params.id)
         );
         const { type, title, amount, startDate, endDate, occurence } = transaction[0];
-        console.log(transactionTypes);
         return (
           <form className='container root'>
             <h1 className='title'>{title}</h1>
@@ -80,7 +80,12 @@ const Transaction = props => {
                 type='button'
                 className='btn btn-danger  delete form-btn'
                 value='Delete'
-                onClick={() => value.deleteTransaction(transaction.id)}
+                onClick={() => {
+                  //Redirect to transactions page
+                  props.history.push('/transactions');
+                  //Delete transaction
+                  value.deleteTransaction(transaction[0].id);
+                }}
               />
             </div>
           </form>

@@ -10,21 +10,21 @@ const transactionsList = [
   },
   {
     id: '2',
-    type: 'Expense',
-    title: 'Rent',
-    amount: '550',
+    type: 'Income',
+    title: 'Salary',
+    amount: '2000',
     startDate: '12-01-2019',
     endDate: null,
-    occurence: 'Monthly'
+    occurence: 'Bi-weekly'
   },
   {
     id: '3',
     type: 'Expense',
-    title: 'Rent',
-    amount: '550',
+    title: 'Food',
+    amount: '100',
     startDate: '12-01-2019',
     endDate: null,
-    occurence: 'Monthly'
+    occurence: 'Weekly'
   }
 ];
 
