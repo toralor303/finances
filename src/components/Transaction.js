@@ -11,10 +11,10 @@ const Transaction = props => {
         const transaction = value.transactions.filter(
           transaction => transaction.id === props.match.params.id
         );
-        const { type, title, amount, startDate, endDate, occurence } = transaction[0];
+        const { id, type, title, amount, startDate, endDate, occurence } = transaction[0];
         console.log(transaction);
         return (
-          <div className='container root'>
+          <form className='container root'>
             <h1 className='title'>{title}</h1>
             <div className='row form'>
               <div className='leftColumn col-sm-6 container-fluid'>
@@ -62,11 +62,17 @@ const Transaction = props => {
               </div>
               <input
                 type='submit'
-                className='btn btn-success save'
+                className='btn btn-primary save form-btn'
                 value='Save changes'
               />
+              <input
+                type='button'
+                className='btn btn-danger  delete form-btn'
+                value='Delete'
+                onClick={() => value.deleteTransaction(id)}
+              />
             </div>
-          </div>
+          </form>
         );
       }}
     </TransactionsContext.Consumer>
