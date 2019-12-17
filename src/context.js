@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react';
+import React, {createContext, useState} from 'react';
 import transactionsList from './data/transactionsList';
 
 export const TransactionsContext = createContext();
@@ -7,7 +7,6 @@ const TransactionsContextProvider = props => {
   const [transactions, setTransactions] = useState(transactionsList);
 
   const deleteTransaction = id => {
-    console.log(id);
     setTransactions(transactions.filter(transaction => transaction.id !== id));
   };
 
@@ -16,8 +15,7 @@ const TransactionsContextProvider = props => {
   };
 
   return (
-    <TransactionsContext.Provider
-      value={{ transactions, deleteTransaction, addTransaction }}>
+    <TransactionsContext.Provider value={{transactions, deleteTransaction, addTransaction}}>
       {props.children}
     </TransactionsContext.Provider>
   );

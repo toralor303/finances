@@ -1,12 +1,13 @@
 import React from 'react';
 
 import '../styles/transactionsList.scss';
-import { TransactionsContext } from '../context';
+import {TransactionsContext} from '../context';
 
 const TransactionsList = () => {
   return (
     <TransactionsContext.Consumer>
       {value => {
+        console.log('Rendering...');
         return (
           <>
             <h1 className='title'>Transactions</h1>
@@ -17,12 +18,19 @@ const TransactionsList = () => {
                   <th scope='col'>Title</th>
                   <th scope='col'>Amount</th>
                   <th scope='col'>Type</th>
-                  <th scope='col'></th>
+                  <th scope='col'>
+                    <img
+                      alt='Add new transaction'
+                      src='images/add.svg'
+                      className='icon add-icon'
+                      onClick={() => value.addTransaction(() => {})}
+                    />
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {value.transactions.map(transaction => {
-                  const { id, type, title, amount } = transaction;
+                  const {id, type, title, amount} = transaction;
                   return (
                     <tr key={id}>
                       <th width='20%' scope='row'>

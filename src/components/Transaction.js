@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransactionsContext } from '../context';
+import {TransactionsContext} from '../context';
 import * as transactionTypes from '../data/transaction-types';
 import * as occurencesList from '../data/occurences';
 
@@ -13,7 +13,7 @@ const Transaction = props => {
         const transaction = value.transactions.filter(
           transaction => parseInt(transaction.id) === parseInt(props.match.params.id)
         );
-        const { type, title, amount, startDate, endDate, occurence } = transaction[0];
+        const {type, title, amount, startDate, endDate, occurence} = transaction[0];
         return (
           <form className='container root'>
             <h1 className='title'>{title}</h1>
@@ -22,12 +22,8 @@ const Transaction = props => {
                 <div className='row-type row'>
                   <span className='lbl lbl-type col-sm-6'>Type: </span>
                   <select defaultValue={type} className='form-control col-sm-6'>
-                    <option value={transactionTypes.EXPENSE}>
-                      {transactionTypes.EXPENSE}
-                    </option>
-                    <option value={transactionTypes.INCOME}>
-                      {transactionTypes.INCOME}
-                    </option>
+                    <option value={transactionTypes.EXPENSE}>{transactionTypes.EXPENSE}</option>
+                    <option value={transactionTypes.INCOME}>{transactionTypes.INCOME}</option>
                   </select>
                 </div>
                 <div className='row-amount row'>
@@ -58,9 +54,7 @@ const Transaction = props => {
                 </div>
                 <div className='row-occurence row'>
                   <div className='lbl-occurence col-sm-6'>Occurence:</div>
-                  <select
-                    defaultValue={occurence}
-                    className='occurence form-control col-sm-6'>
+                  <select defaultValue={occurence} className='occurence form-control col-sm-6'>
                     {occurences.map(occurence => {
                       return (
                         <option value={occurence} key={occurence}>
@@ -71,11 +65,7 @@ const Transaction = props => {
                   </select>
                 </div>
               </div>
-              <input
-                type='submit'
-                className='btn btn-primary save form-btn'
-                value='Save changes'
-              />
+              <input type='submit' className='btn btn-primary save form-btn' value='Save changes' />
               <input
                 type='button'
                 className='btn btn-danger  delete form-btn'
